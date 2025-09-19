@@ -7,6 +7,9 @@ dotenv.config({path: "./config.env"})
 let server = express()
 let port = process.env.PORT
 
+// typecasting into urlencoded code 
+server.use(express.urlencoded({ extended: true}))
+
 server.use(express.static("Public"))
 
 server.set("view engine", "ejs")
