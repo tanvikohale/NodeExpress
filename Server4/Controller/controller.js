@@ -1,8 +1,8 @@
 let persons = [
-    {name: "person 1", Phone: 237509784},
-    {name: "person 2", Phone: 237509784},
-    {name: "person 3", Phone: 237509784},
-    {name: "person 4", Phone: 237509784},
+    {name: "person 1", phone: "237509784"},
+    {name: "person 2", phone: "237509784"},
+    {name: "person 3", phone: "237509784"},
+    {name: "person 4", phone: "237509784"},
 ]
 
 let getHome = (req, res) => {

@@ -5,17 +5,20 @@
     <%= data %>
 
     <% for(let i=0 ; i<5 ; i++){ %>
-        <%- data1>
+        <%= data1 %>
     <% } %>
 
     <table border="1">
-        <% for(i=0 ; i<5 ; i++) { %>
+        <% for(let i = 0 ; i < 4 ; i++) { %>
             <tr>
-                <td><%- data2[index].name %></td>
-                <td><%- data2[index].phone %></td>
+                <td><%= data2[i].name %></td>
+                <td><%= data2[i].phone %></td>
             </tr>
         <% } %>
     </table>
+
+    <h1><%=data2[0].name%></h1>
+    <h1><%=data2[0].phone%></h1>
 
 
     <form action="/submit-form" method="POST">
