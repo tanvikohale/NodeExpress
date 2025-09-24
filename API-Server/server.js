@@ -9,9 +9,13 @@ let port = process.env.PORT
 
 server.use(express.urlencoded({extended: true}))
 
+server.use(express.json())
+
 server.use(express.static("public"))
- server.use(router)
-server.use("/api", router)
+
+server.get('/', (req, res) => { res.redirect("/languages/api/get-details") })
+
+server.use("/languages/api", router)
 
 server.use((req, res) =>{
     console.log("Someone is trying to access a 404 route !")

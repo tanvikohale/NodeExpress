@@ -1,10 +1,22 @@
 import express from "express"
-import {getHome, getSomewhere} from "../Controllers/controller.js"
+import { getDetails, getFilterData, getRandomLanguage, getAllLanaguages, getLanguageBasedOnId, postAddLanaguage } from "../controllers/controller.js"
 
 let router = express.Router()
 
-router.get("/", getHome)
+router.get("/", (req, res) => {
+    res.redirect('get-details')
+})
 
-router.get("/somewhere/:name/:phone", getSomewhere)
+router.get("/all", getAllLanaguages)
 
-export {router}
+router.get("/get-details", getDetails)
+
+router.get("/filter", getFilterData)
+
+router.get("/random/language", getRandomLanguage)
+
+router.get("/get-language/:id", getLanguageBasedOnId)
+
+router.post("/add-language", postAddLanaguage)
+
+export { router }
