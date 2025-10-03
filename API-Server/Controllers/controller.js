@@ -1,4 +1,4 @@
-import { languages } from "./Data/Languages.js"
+import { languages } from "../data/Languages.js"
 
 const getDetails = (req, res) => {
     res.status(200).json({
@@ -109,7 +109,8 @@ const getFilterData = (req, res) => {
             })
             queryType += "/difficulties"
         }
-         if (resultArray.length == 0) throw (`unable to find languages based on ${queryType}`)
+
+        if (resultArray.length == 0) throw (`unable to find languages based on ${queryType}`)
 
         res.status(200).json({ message: `got result based on ${queryType}`, resultCount: resultArray.length, results: resultArray })
 

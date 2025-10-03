@@ -1,27 +1,28 @@
-import express, { urlencoded } from "express"
+import express from "express"
 import dotenv from "dotenv"
-import {router} from "./Router/router.js"
+import { router } from "./routers/router.js"
 
+dotenv.config({ path: "./config.env" })
 
-dotenv.config({path: "./config.env"})
-let server = express()
-let port = process.env.PORT
+const app = express()
 
-server.use(express.urlencoded({extended: true}))
+let port = process.env.PORT || 5005
 
-server.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-server.use(express.static("public"))
+app.use(express.json())
 
-server.get('/', (req, res) => { res.redirect("/languages/api/get-details") })
+app.use(express.static("public"))
 
-server.use("/languages/api", router)
+app.get('/', (req, res) => { res.redirect("/languages/api/get-details") })
 
-server.use((req, res) =>{
-    console.log("Someone is trying to access a 404 route !")
-    res.status(404).json({message: "content not found !"})
+app.use("/languages/api", router)
+
+app.use((req, res) => {
+    console.log("someone is trying to access a 404 route !")
+    res.status(404).json({ message: "content not found !" })
 })
 
-server.listen(port , () =>{
-     console.log(`server is running on port ${port} || http://localhost:${port}`)
+app.listen(port, () => {
+    console.log(`server is running on port ${port} !`)
 })

@@ -52,4 +52,4 @@ const languages = [
 ];
 
 
-export {languages}
+export { languages }
