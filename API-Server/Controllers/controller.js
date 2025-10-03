@@ -104,7 +104,7 @@ const getFilterData = (req, res) => {
 
         if (difficulties) {
             resultArray = resultArray.filter((language) => {
-                // check for type casting
+                // check for type casting 
                 return language.difficulties.toLowerCase() == difficulties.toLowerCase().trim()
             })
             queryType += "/difficulties"
